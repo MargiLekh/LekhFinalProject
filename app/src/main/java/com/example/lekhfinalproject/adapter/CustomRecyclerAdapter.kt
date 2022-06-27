@@ -4,20 +4,24 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.lekhfinalproject.R
 import com.example.lekhfinalproject.data.Planning
+import com.example.lekhfinalproject.presenter.PlanningFragment
 
-class CustomRecyclerAdapter(private val plannings: List<Planning>) : RecyclerView.Adapter<CustomRecyclerAdapter.MyViewHolder>() {
+
+class CustomRecyclerAdapter(private val fm: FragmentManager, private val plannings: List<Planning>) : RecyclerView.Adapter<CustomRecyclerAdapter.MyViewHolder>() {
     class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
-        val itemTitle: TextView = itemView.findViewById(R.id.title)
-        val itemDescription: TextView = itemView.findViewById(R.id.description)
-        val itemRestTime: TextView = itemView.findViewById(R.id.rest_time)
-        val itemDeadLine: TextView = itemView.findViewById(R.id.deadline_time)
+        val itemTitle: TextView = itemView.findViewById(com.example.lekhfinalproject.R.id.title)
+        val itemDescription: TextView = itemView.findViewById(com.example.lekhfinalproject.R.id.description)
+        val itemRestTime: TextView = itemView.findViewById(com.example.lekhfinalproject.R.id.rest_time)
+        val itemDeadLine: TextView = itemView.findViewById(com.example.lekhfinalproject.R.id.deadline_time)
+        val container: ViewGroup = itemView.findViewById(com.example.lekhfinalproject.R.id.container)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.fragment_planning_list_item, parent, false)
+        val itemView = LayoutInflater.from(parent.context).inflate(com.example.lekhfinalproject.R.layout.fragment_planning_list_item, parent, false)
         return MyViewHolder(itemView)
     }
 
@@ -26,6 +30,13 @@ class CustomRecyclerAdapter(private val plannings: List<Planning>) : RecyclerVie
         holder.itemDescription.text = plannings[position].description
         holder.itemRestTime.text = plannings[position].restTime
         holder.itemDeadLine.text = plannings[position].deadlineTime
+
+        holder.container.setOnClickListener{
+            val planning: Fragment = PlanningFragment()
+            val fragmentTransaction = fm.beginTransaction()
+            fragmentTransaction.replace(com.example.lekhfinalproject.R.id.container, planning)
+            fragmentTransaction.commit()
+        }
     }
 
     override fun getItemCount(): Int {

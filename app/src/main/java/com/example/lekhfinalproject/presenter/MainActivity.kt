@@ -1,8 +1,9 @@
-package com.example.lekhfinalproject
+package com.example.lekhfinalproject.presenter
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import by.kirich1409.viewbindingdelegate.viewBinding
+import com.example.lekhfinalproject.R
 import com.example.lekhfinalproject.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {

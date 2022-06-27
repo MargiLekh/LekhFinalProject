@@ -1,11 +1,11 @@
-package com.example.lekhfinalproject
+package com.example.lekhfinalproject.presenter
 
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
+import com.example.lekhfinalproject.R
 import com.example.lekhfinalproject.adapter.CustomRecyclerAdapter
 import com.example.lekhfinalproject.data.Planning
 import com.example.lekhfinalproject.databinding.FragmentPlanningListBinding
@@ -16,7 +16,7 @@ class PlanningListFramgent: Fragment(R.layout.fragment_planning_list) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.list.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
-        binding.list.adapter = CustomRecyclerAdapter(planningList)
+        binding.list.adapter = CustomRecyclerAdapter(requireActivity().supportFragmentManager,planningList)
     }
 
     companion object {
