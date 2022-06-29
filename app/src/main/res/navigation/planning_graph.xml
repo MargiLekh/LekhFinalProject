@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/planning_graph"
+    app:startDestination="@id/planning_list_fragment">
+
+    <fragment
+        android:id="@+id/planning_list_fragment"
+        android:name="com.example.lekhfinalproject.presenter.PlanningListFramgent"
+        android:label="Задачи"
+        tools:layout="@layout/fragment_planning_list">
+
+        <action
+            android:id="@+id/to_planning_item"
+            app:destination="@id/planning_item_fragment">
+            <argument
+                android:name="planning"
+                android:defaultValue="@null"
+                app:argType="com.example.lekhfinalproject.data.Planning"
+                app:nullable="true" />
+        </action>
+
+        <action
+            android:id="@+id/to_add_planning_item"
+            app:destination="@id/planning_item_fragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/planning_item_fragment"
+        android:name="com.example.lekhfinalproject.presenter.PlanningFragment"
+        android:label="Задача"
+        tools:layout="@layout/fragment_planning">
+        <argument
+            android:name="planning"
+            android:defaultValue="@null"
+            app:argType="com.example.lekhfinalproject.data.Planning"
+            app:nullable="true" />
+    </fragment>
+
+
+</navigation>

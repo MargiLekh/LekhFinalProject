@@ -6,9 +6,11 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.lekhfinalproject.data.Planning
 import com.example.lekhfinalproject.presenter.PlanningFragment
+import com.example.lekhfinalproject.presenter.PlanningListFramgentDirections
 
 
 class CustomRecyclerAdapter(private val fm: FragmentManager, private val plannings: List<Planning>) : RecyclerView.Adapter<CustomRecyclerAdapter.MyViewHolder>() {
@@ -32,10 +34,14 @@ class CustomRecyclerAdapter(private val fm: FragmentManager, private val plannin
         holder.itemDeadLine.text = plannings[position].deadlineTime
 
         holder.container.setOnClickListener{
-            val planning: Fragment = PlanningFragment()
-            val fragmentTransaction = fm.beginTransaction()
-            fragmentTransaction.replace(com.example.lekhfinalproject.R.id.container, planning)
-            fragmentTransaction.commit()
+            val action =
+                PlanningListFramgentDirections.toPlanningItem(plannings[position])
+                    holder.itemView
+                        .findNavController().navigate(action)
+//            val planning: Fragment = PlanningFragment()
+//            val fragmentTransaction = fm.beginTransaction()
+//            fragmentTransaction.replace(com.example.lekhfinalproject.R.id.container, planning)
+//            fragmentTransaction.commit()
         }
     }
 
