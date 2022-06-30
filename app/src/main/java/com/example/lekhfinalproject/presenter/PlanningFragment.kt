@@ -17,6 +17,12 @@ class PlanningFragment : Fragment(R.layout.fragment_planning) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        //передает текст из аргсов
         binding.title.setText(args.planning?.title ?: "")
+        binding.description.setText(args.planning?.description ?: "")
+        binding.deadlineLabel.setText(R.string.dealine)
+        binding.deadline.setText(args.planning?.deadlineTime ?: "")
+        binding.timeToDeadlineLabel.setText(R.string.rest_time)
+        binding.timeToDeadline.setText(args.planning?.restTime ?: "")
     }
 }
