@@ -5,4 +5,5 @@
     <string name="dealine">Дедлайн:</string>
     <string name="back_text">Отмена</string>
     <string name="enter_date">Введите дату</string>
+    <string name="first_hint_text">Нажмите на плюс чтобы создать задачу</string>
 </resources>

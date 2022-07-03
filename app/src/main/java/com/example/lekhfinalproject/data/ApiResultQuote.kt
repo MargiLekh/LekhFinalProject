@@ -2,7 +2,7 @@ package com.example.lekhfinalproject.data
 
 import com.google.gson.annotations.SerializedName
 
-data class ApiResponse (
-    @SerializedName("quoteText")
+data class ApiResultQuote (
+    @SerializedName("q")
     val queryText: String
 )

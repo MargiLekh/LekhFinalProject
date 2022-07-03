@@ -5,13 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.lekhfinalproject.data.Planning
 import com.example.lekhfinalproject.data.PlanningEntity
-import com.example.lekhfinalproject.presenter.PlanningFragment
 import com.example.lekhfinalproject.presenter.PlanningListFramgentDirections
 
 
@@ -48,10 +45,6 @@ class CustomRecyclerAdapter(
         holder.container.setOnClickListener {
             val action = PlanningListFramgentDirections.toPlanningItem(plannings[position])
             holder.itemView.findNavController().navigate(action)
-//            val planning: Fragment = PlanningFragment()
-//            val fragmentTransaction = fm.beginTransaction()
-//            fragmentTransaction.replace(com.example.lekhfinalproject.R.id.container, planning)
-//            fragmentTransaction.commit()
         }
     }
 

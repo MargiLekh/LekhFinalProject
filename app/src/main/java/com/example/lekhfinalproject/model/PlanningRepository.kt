@@ -4,6 +4,7 @@ import com.example.lekhfinalproject.data.Planning
 import com.example.lekhfinalproject.data.PlanningEntity
 import com.example.lekhfinalproject.model.api.ApiHelper
 import com.example.lekhfinalproject.model.database.PlanningDao
+import kotlin.random.Random
 
 class PlanningRepository(private val planningDao: PlanningDao, private val apiHelper: ApiHelper) {
     val planningList = planningDao.getAll()
@@ -17,5 +18,6 @@ class PlanningRepository(private val planningDao: PlanningDao, private val apiHe
         )
         planningDao.insertPlanning(entity)
     }
-    suspend fun getQuote() : String = apiHelper.getQuote().queryText
+
+    suspend fun getQuote(): String = apiHelper.getQuote().getOrNull(0)?.queryText ?: ""
 }

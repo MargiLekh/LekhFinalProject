@@ -7,9 +7,9 @@ import androidx.room.RoomDatabase
 import com.example.lekhfinalproject.data.PlanningEntity
 
 @Database(entities = [PlanningEntity::class], version = 1)
-abstract class AppDatabase: RoomDatabase() {
+abstract class AppDatabase : RoomDatabase() {
 
-    abstract fun planningDao() : PlanningDao
+    abstract fun planningDao(): PlanningDao
 
     companion object {
         private var INSTANCE: AppDatabase? = null
