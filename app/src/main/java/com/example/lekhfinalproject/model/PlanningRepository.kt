@@ -2,9 +2,10 @@ package com.example.lekhfinalproject.model
 
 import com.example.lekhfinalproject.data.Planning
 import com.example.lekhfinalproject.data.PlanningEntity
+import com.example.lekhfinalproject.model.api.ApiHelper
 import com.example.lekhfinalproject.model.database.PlanningDao
 
-class PlanningRepository(private val planningDao: PlanningDao) {
+class PlanningRepository(private val planningDao: PlanningDao, private val apiHelper: ApiHelper) {
     val planningList = planningDao.getAll()
     suspend fun add(planning: Planning) {
         val entity = PlanningEntity(
@@ -16,4 +17,5 @@ class PlanningRepository(private val planningDao: PlanningDao) {
         )
         planningDao.insertPlanning(entity)
     }
+    suspend fun getQuote() : String = apiHelper.getQuote().queryText
 }

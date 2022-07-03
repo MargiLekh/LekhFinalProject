@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">Track Your Plans</string>
     <string name="savebutton">Сохранить</string>
-    <string name="rest_time">Осталось времени:</string>
+    <string name="rest_time">Осталось дней:</string>
     <string name="dealine">Дедлайн:</string>
+    <string name="back_text">Отмена</string>
+    <string name="enter_date">Введите дату</string>
 </resources>

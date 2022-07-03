@@ -10,7 +10,7 @@ import com.example.lekhfinalproject.data.PlanningEntity
 @Dao
 interface PlanningDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertPlanning (planning: PlanningEntity)
+    fun insertPlanning (planning: PlanningEntity)
     @Query("SELECT * FROM planning")
     fun getAll(): LiveData<List<PlanningEntity>>
 }

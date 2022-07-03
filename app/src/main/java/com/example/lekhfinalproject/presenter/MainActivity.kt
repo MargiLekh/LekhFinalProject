@@ -1,6 +1,7 @@
 package com.example.lekhfinalproject.presenter
 
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
@@ -17,7 +18,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         AppDatabase.invoke(applicationContext)
-        val navHostFragment =
+       val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.container) as NavHostFragment
         navHostFragment.findNavController().setGraph(R.navigation.planning_graph)
 
