@@ -85,7 +85,6 @@ class PlanningFragment : Fragment(R.layout.fragment_planning) {
                 datePicker.show()
             }
 
-            //сюда запихать условие с проверкой на пустые строки
             saveBtn.setOnClickListener {
                 if (title.text.toString() == "" ||
                     description.text.toString() == "" ||
